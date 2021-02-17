@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+
+  <div id="games"></div>
+
+  <script type="text/babel">
+
+    class Properties extends React.Component {
+      render() {
+        return (
+          <div>
+            <h1>{this.props.name}</h1>
+            <h1>{this.props.age}</h1>
+          </div>
+
+        )
+      }
+    }
+    const games = document.getElementById("games");
+
+
+    ReactDOM.render(
+      <Properties name="Dragon Age" age="18+" />,
+      games
+    )
+
+
+  </script>
+
+
+</body>
+
+</html>
