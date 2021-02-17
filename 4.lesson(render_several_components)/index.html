@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+
+
+  <div id="container"></div>
+  <script type="text/babel">
+    class SeveralComponents extends React.Component {
+      render() {
+
+        const num = 99;
+
+        return (
+          <div>
+            <h1>Заголовок {num} уровня</h1>
+            <h2>Заголовок второго уровня</h2>
+          </div>
+        )
+      }
+    }
+
+    const container = document.getElementById("container")
+
+    ReactDOM.render(
+      <div>
+        <SeveralComponents />
+        <SeveralComponents />
+        <SeveralComponents />
+      </div>,
+      container);
+      
+  </script>
+</body>
+
+</html>
