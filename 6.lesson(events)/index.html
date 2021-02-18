@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+
+  <!-- тут мы знакомимся с отслеживание событий: при нажатии на какую либо кнопку
+  у нас выводит сообщение
+  в классе Task мы создаём немколько методов и работаем с ними -->
+  <div id="programm"></div>
+
+
+
+  <script type="text/babel">
+    const app = document.getElementById("programm");
+
+    class Task extends React.Component {
+      edit() {
+        alert("edit");
+      }
+
+      remove() {
+        alert("delete");
+      }
+
+      render() {
+        return (
+          <div className="box">
+            <div className="text">Some text</div>
+            <button onClick={this.edit} className="btn light">Edit</button>
+            <button onClick={this.remove} className="btn red">Delete</button>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <div className="field">
+        <Task>Совершенно</Task>
+        <Task>Новый</Task>
+        <Task>Текст</Task>
+      </div>, app)
+
+
+  </script>
+</body>
+
+</html>
