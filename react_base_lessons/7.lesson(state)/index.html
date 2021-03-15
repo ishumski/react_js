@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello World</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+
+  <div id="programm"></div>
+
+  <script type="text/babel">
+
+    class Check extends React.Component {
+      getInitialState() {
+        return {
+          checked: true
+        }
+      }
+
+
+      render() {
+        var let;
+        
+        if (this.state.checked) {
+          message = "checked";
+        } else {
+          message = "not checked";
+        }
+        return (
+          <div>
+            <input type="checkbox" />
+            <p>{message}</p>
+          </div>
+        )
+      }
+    }
+
+    const app = document.getElementById("programm");
+
+    ReactDOM.render(<Check />, app);
+
+  </script>
+
+</body>
+
+</html>
