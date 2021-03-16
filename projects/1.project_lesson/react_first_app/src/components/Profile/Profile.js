@@ -10,9 +10,6 @@ export default function Profile() {
                 <img src="../images/main_img.jpg" />
             </div>
         <Posts/>
-        <Posts/>
-        <Posts/>
-        <Posts/>
         </div>
     )
 }
