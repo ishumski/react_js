@@ -1,14 +1,18 @@
 import './App.css';
-import Header from "./header.js"
-import Technologies from "./technologies.js"
+import Header from "./components/Header/Header.js"
+import NavBar from "./components/Navigation/Nav.js"
+import Profile from "./components/Profile/Profile.js"
+
 
 function App() {
   return (
-    <div>
+    <div className="app-wrapper">
       <Header />
-      <Technologies />
+      <NavBar />
+      <Profile />
     </div>
   );
-}
+};
+
 
 export default App;
