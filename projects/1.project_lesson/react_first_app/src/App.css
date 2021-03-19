@@ -14,3 +14,10 @@
   grid-gap: 15px;
 }
 
+.app-wrapper-content {
+  grid-area: content;
+  background-color: rgba(62, 174, 249, 0.89);
+  color: #ffffff;
+  padding: 10px;
+}
+

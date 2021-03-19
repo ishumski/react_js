@@ -1,22 +1,23 @@
-import style from "./Nav.module.css"
+import style from "./Nav.module.css";
+import { NavLink } from "react-router-dom";
 
 export default function Nav() {
     return (
         <nav className={style.nav}>
             <div className={style.item}>
-                <a href="#">Profile</a>
+                <NavLink to="/profile" activeClassName={style.activeLink}>Profile</NavLink>
             </div>
             <div className={style.item}>
-                <a href="#">Messages</a>
+                <NavLink to="/dialogs" activeClassName={style.activeLink}>Messages</NavLink>
             </div>
             <div className={style.item}>
-                <a href="#">News</a>
+                <NavLink to="/news" activeClassName={style.activeLink}>News</NavLink>
             </div>
             <div className={style.item}>
-                <a href="#">Music</a>
+                <NavLink to="/music" activeClassName={style.activeLink}>Music</NavLink>
             </div>
             <div className={style.item}>
-                <a href="#">Settings</a>
+                <NavLink to="/settings" activeClassName={style.activeLink}>Settings</NavLink>
             </div>
         </nav>
     )
