@@ -1,11 +1,19 @@
 import Post from "./post/Post.js"
 import posts from "./Posts.module.css"
 
-export default function MyPost() {
+export default function MyPost(props) {
+
+   
+    
+    let postElements = props.items.map((p, i) => <Post key={i} message={p.message} likes={p.likes} />)
+
     return (
         <div className={posts.item}>
-        <Post message="Hello, yes this is dog!" likes="15"/>
-        <Post message="I am learning React!" likes="23"/>
+            <div>
+                <textarea></textarea>
+            </div>
+            <button>Publish</button>
+            {postElements}
         </div>
     )
 }
