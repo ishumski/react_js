@@ -3,9 +3,7 @@ import posts from "./Posts.module.css"
 
 export default function MyPost(props) {
 
-   
-    
-    let postElements = props.items.map((p, i) => <Post key={i} message={p.message} likes={p.likes} />)
+    let postElements = props.posts.map((p, i) => <Post key={i} message={p.message} likes={p.likes} />)
 
     return (
         <div className={posts.item}>
