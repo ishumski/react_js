@@ -15,3 +15,9 @@
 .item a.activeLink {
     color: #ffffff;
 }
+
+.friends {
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-evenly;
+}

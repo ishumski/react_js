@@ -7,6 +7,7 @@ import Dialogs from "./components/Dialogs/Dialogs.js"
 import News from './components/News/News.js';
 import Music from './components/Music/Music.js';
 import Settings from './components/Settings/Settings.js';
+import Friends from './components/Friends/Friends';
 
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -17,11 +18,12 @@ function App(props) {
         <Header />
         <NavBar />
         <div className="app-wrapper-content">
-          <Route path="/profile" render={() => <Profile posts={props.posts} />} />
-          <Route path="/dialogs" render={() => <Dialogs dialog={props.dialog} message={props.message} />} />
+          <Route path="/profile" render={() => <Profile state={props.state.profilePage} />} />
+          <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogPage} />} />
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music />} />
           <Route path="/settings" render={() => <Settings />} />
+          <Route path="/friends" render={() => <Friends />} />
         </div>
       </div>
     </BrowserRouter>

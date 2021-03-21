@@ -7,6 +7,7 @@ export default function DialogItem(props) {
     return (
 
         <div className={style.dialog}>
+            <img src="../../../../public/images/telegram.png" alt="dialog_img"/>
             <NavLink to={link}>{props.name}</NavLink>
         </div>
     )

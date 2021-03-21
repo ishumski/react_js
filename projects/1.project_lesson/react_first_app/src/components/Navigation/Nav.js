@@ -1,5 +1,6 @@
 import style from "./Nav.module.css";
 import { NavLink } from "react-router-dom";
+import Friend from "../Friends/Friend/Friend.js"
 
 export default function Nav() {
     return (
@@ -18,6 +19,14 @@ export default function Nav() {
             </div>
             <div className={style.item}>
                 <NavLink to="/settings" activeClassName={style.activeLink}>Settings</NavLink>
+            </div>
+            <div className={style.item}>
+                <NavLink to="/friends" activeClassName={style.activeLink}>Friends</NavLink>
+                <div className={style.friends}>
+                    <Friend name="Ilia" />
+                    <Friend name="Ilia" />
+                    <Friend name="Ilia" />
+                </div>
             </div>
         </nav>
     )
