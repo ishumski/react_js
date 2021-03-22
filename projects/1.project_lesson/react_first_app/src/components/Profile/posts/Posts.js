@@ -10,7 +10,8 @@ export default function MyPost(props) {
 
     function addPost() {
         const text = refItem.current.value;
-        alert(text);
+        props.addPost(text);
+        refItem.current.value = "";
     }
     return (
         <div className={posts.item}>
