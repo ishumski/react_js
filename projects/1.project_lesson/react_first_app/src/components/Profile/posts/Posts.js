@@ -9,14 +9,19 @@ export default function MyPost(props) {
     const refItem = React.createRef();
 
     function addPost() {
-        const text = refItem.current.value;
-        props.addPost(text);
-        refItem.current.value = "";
+        // let text = refItem.current.value;
+        props.addPost(refItem.current.value);
     }
+
+    function onPostChange() {
+        // let text = refItem.current.value;
+        props.updateNewPostText(refItem.current.value);
+    }
+
     return (
         <div className={posts.item}>
             <div>
-                <textarea ref={refItem}></textarea>
+                <textarea ref={refItem} onChange={onPostChange} value={props.newPostText} />
             </div>
             <button onClick={addPost} >Publish</button>
             {postElements}
