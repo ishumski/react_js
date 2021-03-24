@@ -1,4 +1,4 @@
-import rerenderTree from "../Render.js"
+let rerenderTree = () => { };//лучше задать через func. expression, тогда мы сможем переопределить эту ф-цию ниже в subscribe(observe)
 
 const state = {
     profilePage: {
@@ -52,6 +52,10 @@ export function updateNewPostText(newText) {
 
     rerenderTree(state);
 
+}
+
+export function subscribe(observe) {
+    rerenderTree = observe;
 }
 
 export default state;
