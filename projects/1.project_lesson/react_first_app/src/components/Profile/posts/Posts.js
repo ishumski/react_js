@@ -23,7 +23,7 @@ export default function MyPost(props) {
             <div>
                 <textarea ref={refItem} onChange={onPostChange} value={props.newPostText} />
             </div>
-            <button onClick={addPost} >Publish</button>
+            <button onClick={addPost}>Publish</button>
             {postElements}
         </div>
     )
