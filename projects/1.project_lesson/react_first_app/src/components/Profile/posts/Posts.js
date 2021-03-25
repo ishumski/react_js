@@ -9,18 +9,13 @@ export default function MyPost(props) {
     const refItem = React.createRef();
 
     function addPost() {
-        // let text = refItem.current.value;
-        // props.addPost(refItem.current.value);
         props.dispatch({ type: "ADD-POST" })
     }
 
-    function onPostChange(newText) {
-
-        // let text = refItem.current.value;
-        // props.updateNewPostText(refItem.current.value);
-        let action = { type: "UPDATE-NEW-POST-TEXT", text: newText }
+    function onPostChange() {
+        let text = refItem.current.value;
+        let action = { type: "UPDATE-NEW-POST-TEXT", newText: text }
         props.dispatch(action);
-
     }
 
     return (
