@@ -1,3 +1,6 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
+
 let store = {
 
     state: {
@@ -35,7 +38,8 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === "ADD-POST") {
+
+        if (action.type === ADD_POST) {
             const { posts } = this.state.profilePage;
             // let { newPostText } = state.profilePage; почему не работает деструктуризация?
 
@@ -54,7 +58,8 @@ let store = {
             // addNewPost = [...posts, newPost];// и тут почуму-то выбивает undefined, но [...posts, newPost] показывает, что такие эдементы есть
             // rerenderTree(addNewPost);
             this.rerenderTree(this.state);
-        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
 
             this.state.profilePage.newPostText = action.newText;
 
@@ -64,5 +69,9 @@ let store = {
     }
 
 }
+
+export const addPostActionCreator = () => ({ type: ADD_POST });
+
+export const updateNewPostTextActionCreator = (value) => ({ type: UPDATE_NEW_POST_TEXT, newText: value });
 
 export default store;
