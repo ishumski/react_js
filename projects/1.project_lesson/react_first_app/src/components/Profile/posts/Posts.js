@@ -10,12 +10,17 @@ export default function MyPost(props) {
 
     function addPost() {
         // let text = refItem.current.value;
-        props.addPost(refItem.current.value);
+        // props.addPost(refItem.current.value);
+        props.dispatch({ type: "ADD-POST" })
     }
 
-    function onPostChange() {
+    function onPostChange(newText) {
+
         // let text = refItem.current.value;
-        props.updateNewPostText(refItem.current.value);
+        // props.updateNewPostText(refItem.current.value);
+        let action = { type: "UPDATE-NEW-POST-TEXT", text: newText }
+        props.dispatch(action);
+
     }
 
     return (

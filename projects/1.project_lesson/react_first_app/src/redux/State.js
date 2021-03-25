@@ -30,40 +30,39 @@ let store = {
     //лучше задать через func. expression, тогда мы сможем переопределить эту ф-цию ниже в subscribe(observe)
     rerenderTree() { },
 
-    addPost() {
-
-        const { posts } = this.state.profilePage;
-        // let { newPostText } = state.profilePage; почему не работает деструктуризация?
-
-        let newPost = {
-            id: posts.length + 1,
-            message: this.state.profilePage.newPostText,//newPostText
-            likes: 0,
-        };
-
-        posts.push(newPost);
-        this.state.profilePage.newPostText = "";//newPostText
-
-        //всё, что ниже - работает и добавляет новый месседж в массив, но не выводит на страницу при рендере
-        //пока использую мутацию push выше
-        // let addNewPost = [];//почуму-то выбивает undefined
-        // addNewPost = [...posts, newPost];// и тут почуму-то выбивает undefined, но [...posts, newPost] показывает, что такие эдементы есть
-        // rerenderTree(addNewPost);
-        this.rerenderTree(this.state);
-
-    },
-
-    updateNewPostText(newText) {
-
-        this.state.profilePage.newPostText = newText;
-
-        this.rerenderTree(this.state);
-
-    },
-
     subscribe(observe) {
         this.rerenderTree = observe;
+    },
+
+    dispatch(action) {
+        if (action.type === "ADD-POST") {
+            const { posts } = this.state.profilePage;
+            // let { newPostText } = state.profilePage; почему не работает деструктуризация?
+
+            let newPost = {
+                id: posts.length + 1,
+                message: this.state.profilePage.newPostText,//newPostText
+                likes: 0,
+            };
+
+            posts.push(newPost);
+            this.state.profilePage.newPostText = "";//newPostText
+
+            //всё, что ниже - работает и добавляет новый месседж в массив, но не выводит на страницу при рендере
+            //пока использую мутацию push выше
+            // let addNewPost = [];//почуму-то выбивает undefined
+            // addNewPost = [...posts, newPost];// и тут почуму-то выбивает undefined, но [...posts, newPost] показывает, что такие эдементы есть
+            // rerenderTree(addNewPost);
+            this.rerenderTree(this.state);
+        } else if (action.type === "UPDATE-NEW-POST-TEXT") {
+
+            this.state.profilePage.newPostText = action.newText;
+
+            this.rerenderTree(this.state);
+
+        }
     }
+
 }
 
 export default store;
