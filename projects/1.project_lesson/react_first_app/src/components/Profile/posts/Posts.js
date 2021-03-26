@@ -9,8 +9,6 @@ export default function MyPost(props) {
 
     const refItem = React.createRef();
 
-
-
     function addPost() {
         props.dispatch(addPostActionCreator())
     }

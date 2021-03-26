@@ -1,5 +1,8 @@
 const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT"
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+
+const SEND_MESSAGE = "SEND-MESSAGE";
+const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
 
 let store = {
 
@@ -12,17 +15,18 @@ let store = {
             newPostText: "",
         },
 
-        dialogPage: {
+        dialogsPage: {
             dialog: [
                 { id: 1, name: "Ilia" },
                 { id: 2, name: "Anna" },
                 { id: 3, name: "Dovakin" },
                 { id: 4, name: "Doomboy" },
             ],
-            message: [
+            messages: [
                 { id: 1, message: "Hi!" },
-                { id: 1, message: "YO!" },
+                { id: 2, message: "YO!" },
             ],
+            newMessageBody: "",
         }
     },
 
@@ -34,7 +38,7 @@ let store = {
     rerenderTree() { },
 
     subscribe(observe) {
-        this.rerenderTree = observe;
+        this.callSubscriber = observe;
     },
 
     dispatch(action) {
@@ -57,14 +61,24 @@ let store = {
             // let addNewPost = [];//почуму-то выбивает undefined
             // addNewPost = [...posts, newPost];// и тут почуму-то выбивает undefined, но [...posts, newPost] показывает, что такие эдементы есть
             // rerenderTree(addNewPost);
-            this.rerenderTree(this.state);
+            this.callSubscriber(this.state);
 
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
 
             this.state.profilePage.newPostText = action.newText;
 
-            this.rerenderTree(this.state);
+            this.callSubscriber(this.state);
 
+        } else if (action.type === SEND_MESSAGE) {
+            let body = this.state.dialogsPage.newMessageBody;
+            this.state.dialogsPage.newMessageBody = "";
+            this.state.dialogsPage.messages.push({ id: 3, message: body });
+
+            this.callSubscriber(this.state);
+
+        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+            this.state.dialogsPage.newMessageBody = action.body;
+            this.callSubscriber(this.state);
         }
     }
 
@@ -73,5 +87,10 @@ let store = {
 export const addPostActionCreator = () => ({ type: ADD_POST });
 
 export const updateNewPostTextActionCreator = (value) => ({ type: UPDATE_NEW_POST_TEXT, newText: value });
+
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
+
+export const updateNewMessageBodyCreator = (value) => ({ type: UPDATE_NEW_MESSAGE_BODY, body: value });
+
 
 export default store;
