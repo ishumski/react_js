@@ -5,13 +5,7 @@ import { db } from "./firebase.js";
 
 function App() {
 
-  const [posts, setPost] = useState([
-    // {
-    //   username: "Ilia",
-    //   caption: "BLAAAAAA",
-    //   imageUrl: "https://allthatsinteresting.com/wordpress/wp-content/uploads/2013/09/interesting-pictures-asperatus-clouds.jpg",
-    // }
-  ]);
+  const [posts, setPost] = useState([]);
 
   useEffect(() => {
     db.collection("posts").onSnapshot(snapshot => {
