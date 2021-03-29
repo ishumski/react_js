@@ -1,25 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
 import Post from './components/Post/Post.js';
-import firebase from "firebase";
-
+import { db } from "./firebase.js";
 
 function App() {
-  
-function componentDidMount(){
-  const db = firebase.database();
-  console.log(db)
-}
-componentDidMount()
-
 
   const [posts, setPost] = useState([
-    {
-      username: "Ilia",
-      caption: "BLAAAAAA",
-      imageUrl: "https://allthatsinteresting.com/wordpress/wp-content/uploads/2013/09/interesting-pictures-asperatus-clouds.jpg",
-    }
+    // {
+    //   username: "Ilia",
+    //   caption: "BLAAAAAA",
+    //   imageUrl: "https://allthatsinteresting.com/wordpress/wp-content/uploads/2013/09/interesting-pictures-asperatus-clouds.jpg",
+    // }
   ]);
+
+  useEffect(() => {
+    db.collection("posts").onSnapshot(snapshot => {
+      setPost(snapshot.docs.map(doc => doc.data()));
+    })
+  }, []);
+
+
   return (
     <div className="App">
       <div className="app__header">
@@ -27,8 +27,9 @@ componentDidMount()
       </div>
 
       {
-        posts.map(post => (
+        posts.map((post, i) => (
           <Post
+            key={i}
             username={post.username}
             caption={post.caption}
             imageUrl={post.imageUrl}
