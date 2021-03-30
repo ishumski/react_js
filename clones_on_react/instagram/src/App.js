@@ -21,9 +21,9 @@ function App() {
       </div>
 
       {
-        posts.map((post, i) => (
+        posts.map((post) => (
           <Post
-            key={i}
+            
             username={post.username}
             caption={post.caption}
             imageUrl={post.imageUrl}
