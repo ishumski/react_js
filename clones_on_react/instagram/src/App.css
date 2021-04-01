@@ -7,15 +7,33 @@
 .app {
   height: 100vh;
   background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+ 
 }
 .app__header {
   object-fit: contain;
   padding: 20px;
   border-bottom: 1px solid lightgrey;
   background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+.app__postsLeft {
+  margin-left: 20px;
 }
 
-.app_signUp {
+.app__headerImage {
+  object-fit: contain;
+}
+.app__posts {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.app_signUp,
+.app_signIn {
   display: flex;
   flex-direction: column;
 }
