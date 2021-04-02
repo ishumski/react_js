@@ -7,17 +7,18 @@
 .app {
   height: 100vh;
   background-color: #fafafa;
-  display: flex;
-  justify-content: center;
- 
 }
 .app__header {
-  object-fit: contain;
-  padding: 20px;
+  
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 15px;
   border-bottom: 1px solid lightgrey;
   background-color: #ffffff;
   display: flex;
   justify-content: space-between;
+  object-fit: contain;
 }
 .app__postsLeft {
   margin-left: 20px;
