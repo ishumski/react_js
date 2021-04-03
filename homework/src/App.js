@@ -8,7 +8,7 @@ export default function App() {
         <div>
             <HelloMessage name={"Dovakin"} />
             <Multiply a={2} b={3} />
-            <ImageOrButton isButton={true} />
+            <ImageOrButton isButton={false} />
         </div>
     )
 }
