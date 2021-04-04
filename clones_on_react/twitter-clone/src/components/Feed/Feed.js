@@ -1,4 +1,6 @@
+import React from "react";
 import "./Feed.css";
+import TweetBox from "./TweetBox/TweetBox.js";
 
 function Feed() {
     return (
@@ -6,85 +8,7 @@ function Feed() {
             <div className="feed__header">
                 <h2>HEADEEEEEEEEEEEER</h2>
             </div>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2><h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2><h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2><h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2><h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2><h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2><h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2><h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2><h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2><h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2><h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2><h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2>
-            <h2>Home</h2><h2>Home</h2>
+            <TweetBox />
         </div>
     )
 }

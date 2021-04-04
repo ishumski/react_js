@@ -5,9 +5,16 @@
     overflow-y: scroll;
 }
 
-/*скрывает полосу прокрутки, но оставляет возожность скролить*/
+/*скрывает полосу прокрутки для Chrome, safari, opera ,
+ но оставляет возожность скролить*/
 .feed::-webkit-scrollbar {
-    width: 0;
+    width: 0; /*or display:none*/
+}
+
+/*скрывает полосу прокрутки для IE, Edge, Firefox*/
+.feed {
+    -ms-overflow-style: none; /*IE, Edge*/
+    scrollbar-width: none; /*Firefox*/
 }
 
 .feed__header {
