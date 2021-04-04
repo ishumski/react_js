@@ -1,0 +1,18 @@
+.sidebarOption {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 0px 10px 20px;
+}
+
+.sidebarOption > h3 {
+    font-weight: 20px;
+    font-size: 20px;
+    margin-left: 20px;
+}
+.sidebarOption:hover {
+    background-color: #e8f5fe;
+    border-radius: 30px;
+    color: var(--twitter-color);
+    transition: color 0.1ms ease-out;
+}

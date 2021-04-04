@@ -1,20 +1,13 @@
 import React from "react";
-import Sidebar from "../src/components/Sidebar.js"
+import Sidebar from "./components/Sidebar/Sidebar.js";
 import './App.css';
 
-function App() {
+export default function App() {
   return (
     <div className="app">
-      <Sidebar text="Home" />
-      <Sidebar text="Explore" />
-      <Sidebar text="Notifications" />
-      <Sidebar text="Messages" />
-      <Sidebar text="Bookmarks" />
-      <Sidebar text="Lists" />
-      <Sidebar text="Profile" />
-      <Sidebar text="More" />
+      <Sidebar />
     </div>
   );
 }
 
-export default App;
+
