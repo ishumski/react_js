@@ -11,15 +11,16 @@ import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import { Button } from "@material-ui/core";
 /*можно столкнуться с багом неотрисовки иконок и выдаёт ошибку, что мы должны проверить наши импорты:
 In your Sidebar.js, make sure you don't have any <SidebarOption /> tags without its attributes of 'Icon'. 
 That is, all your <SidebarOption /> tags should be <SidebarOption Icon={SOMEIcon} text="SOMETEXT" />. 
 You can't render without passing the attributes of 'Icon'.*/
 
-export default function Sidebar() {
+function Sidebar() {
     return (
         <div className={s.sidebar}>
-            <TwitterIcon />
+            <TwitterIcon className={s.sidebare__twitteIcon} />
             <SidebarOption active Icon={HomeIcon} text="Home" />
             <SidebarOption Icon={SearchIcon} text="Explore" />
             <SidebarOption Icon={NotificationsNoneIcon} text="Notifications" />
@@ -28,8 +29,11 @@ export default function Sidebar() {
             <SidebarOption Icon={ListAltIcon} text="Lists" />
             <SidebarOption Icon={PersonOutlineIcon} text="Profile" />
             <SidebarOption Icon={MoreHorizIcon} text="More" />
+            <Button variant="outlined" className={s.sidebar__tweet}>Tweet</Button>
         </div>
     );
 }
+
+export default Sidebar;
 
 

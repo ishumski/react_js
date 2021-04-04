@@ -1,0 +1,11 @@
+import "./Widgets.css";
+
+function Widgets() {
+    return (
+        <div className="widgets">
+            <h2>WIDGETS</h2>
+        </div>
+    )
+}
+
+export default Widgets;

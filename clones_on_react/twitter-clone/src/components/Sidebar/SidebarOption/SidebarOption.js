@@ -1,12 +1,14 @@
 import React from 'react';
-import s from "./SidebarOption.module.css";
+import "./SidebarOption.css";
 
-export default function SidebarOption({ text, Icon }) {
+function SidebarOption({ active, text, Icon }) {
 
     return (
-        <div className={s.sidebarOption}>
+        <div className={`sidebarOption ${active && "sidebarOption__active"} `} >
             <Icon />
             <h3>{text}</h3>
         </div>
     );
 }
+
+export default SidebarOption;
