@@ -11,11 +11,12 @@ function Widgets() {
                 <input type="text" placeholder="Search..." />
             </div>
             <div className="widgets__widgetContainer">
+                <h3>What's happening</h3>
                 <TwitterTweetEmbed tweetId={"841418541026877441"} />
                 <TwitterTimelineEmbed
                     sourceType="profile"
                     screenName="BBCWorld"
-                    options={{ height: 400 }}
+                    options={{ height: 300 }}
 
                 />
                 <TwitterShareButton url="https://twitter.com/" />
