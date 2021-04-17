@@ -1,0 +1,16 @@
+.sidebar {
+    flex: 0.25;
+    border: 1px solid lightskyblue;
+}
+.sidebar__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgb(213, 217, 219);
+}
+.sidebar__headerRight {
+    min-width: 10vw;
+    display: flex;
+    justify-content: space-between;
+}
