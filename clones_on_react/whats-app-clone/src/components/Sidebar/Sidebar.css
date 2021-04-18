@@ -1,5 +1,6 @@
 .sidebar {
     flex: 0.3;
+    background-color: #ffffff;
 }
 .sidebar__header {
     display: flex;
@@ -7,6 +8,7 @@
     justify-content: space-between;
     padding: 20px;
     background-color: rgb(213, 217, 219);
+    border-right: 1px solid rgb(255, 113, 113);
 }
 .sidebar__headerRight {
     min-width: 10vw;
@@ -24,6 +26,7 @@
     align-items: center;
     padding: 10px 10px 10px 0px;
     background-color: rgb(255, 255, 255);
+    border-right: 1px solid rgb(255, 113, 113);
 }
 
 .sidebar__search > input {
@@ -33,7 +36,6 @@
 }
 
 .sidebar__chats {
-    height: 100vh;
     flex: 1;
     background-color: #ffffff;
 }

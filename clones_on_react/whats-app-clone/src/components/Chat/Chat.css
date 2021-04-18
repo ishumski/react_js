@@ -1,3 +1,85 @@
 .chat {
-    flex: 0.8;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgb(213, 217, 219);
+}
+
+.chat__headerInfo {
+    font-size: 14px;
+}
+
+.chat__headerInfo > h3 {
+    font-weight: 500;
+}
+
+.chat__headerInfo > p {
+    color: grey;
+}
+
+.chat__headerRight {
+    min-width: 100px;
+}
+
+.chat__body {
+    height: 100vh;
+    background-image: url("https://crew.bet/wp-content/uploads/2015/07/bet-blocks-bg.png?id=1563");
+    background-position: center;
+    background-repeat: repeat;
+    overflow-y: auto;
+    padding: 30px;
+}
+
+.chat__message {
+    width: fit-content;
+    position: relative;
+    background-color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+.chat__reciver {
+    margin-left: auto;
+    background-color: #dcf8c6;
+}
+
+.chat__name {
+    position: absolute;
+    top: -15px;
+    font-size: xx-small;
+    font-weight: 800;
+}
+
+.chat__timestamp {
+    font-size: xx-small;
+    margin-left: 20px;
+}
+
+.chat__footer > form {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 0px 15px;
+}
+.chat__footer > form > input {
+    flex: 1;
+    border-radius: 30px;
+    height: 40px;
+    border: none;
+    padding: 10px;
+    margin: 0px 10px;
+    outline: none;
+    font-size: 16px;
+}
+
+.chat__footer-btn {
+    display: none !important;
 }

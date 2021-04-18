@@ -6,7 +6,6 @@ import Sidebar from "./components/Sidebar/Sidebar";
 function App() {
   return (
     <div className="app">
-      <h1>Let's  write code, bitch!</h1>
       <div className="app__body">
         <Sidebar />
         <Chat />

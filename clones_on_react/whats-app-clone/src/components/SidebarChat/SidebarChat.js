@@ -13,14 +13,8 @@ function SidebarChat({ addNewChat, roomName }) {
     const createChat = () => {
         const roomName = prompt("Enter room name for chat");
 
-        if (roomName) {
-            return <div className="sidebarChat">
-                <Avatar src={`https://avatars.dicebear.com/api/gridy/:${seed}.svg`} />
-                <div className="sidebarChat__info">
-                    <h2>{roomName}</h2>
-                    <p>last message...</p>
-                </div>
-            </div>
+        if (roomName){
+            return 
         }
     };
 
