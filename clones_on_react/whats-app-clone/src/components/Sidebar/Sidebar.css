@@ -1,6 +1,7 @@
 .sidebar {
     flex: 0.3;
     background-color: #ffffff;
+    
 }
 .sidebar__header {
     display: flex;
@@ -36,6 +37,7 @@
 }
 
 .sidebar__chats {
-    flex: 1;
+    
     background-color: #ffffff;
+ 
 }

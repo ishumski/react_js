@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Sidebar.css";
+
 import { Avatar, IconButton } from '@material-ui/core';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
 import SidebarChat from '../SidebarChat/SidebarChat';
+import db from "../../firebase.js";
+
 
 function Sidebar() {
+    const [rooms, setRooms] = useState([]);
+
+    useEffect(() => {
+        db.collection('rooms').onSnapshot(snapshot => (
+            setRooms(snapshot.docs.map(doc => (
+                {
+                    id: doc.id,
+                    data: doc.data()
+                }
+            )
+
+            ))
+        ));
+
+    }, []);
 
     function showMessage() {
         alert("You're greate!")
@@ -39,13 +57,13 @@ function Sidebar() {
                 />
             </div>
             <div className="sidebar__chats">
-                <SidebarChat addNewChat="sidebarChat" />
-                <SidebarChat />
-                <SidebarChat />
-                <SidebarChat />
+                <SidebarChat addNewChat />
+                {rooms.map(room => (
+                    <SidebarChat key={room.id} id={room.id} name={room.data.name} />
+                ))}
             </div>
         </div>
     )
 }
 
-export default Sidebar
+export default Sidebar;
