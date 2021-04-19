@@ -29,7 +29,7 @@ function SidebarChat({ addNewChat, id, name }) {
             <div className="sidebarChat">
                 <Avatar src={`https://avatars.dicebear.com/api/gridy/:${seed}.svg`} />
                 <div className="sidebarChat__info">
-                    <h2>{name}</h2>
+                    <h3>{name}</h3>
                     <p>last message...</p>
                 </div>
             </div>
