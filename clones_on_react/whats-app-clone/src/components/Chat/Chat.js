@@ -8,16 +8,17 @@ import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import MicIcon from '@material-ui/icons/Mic';
 import { useParams } from 'react-router';
 import db from '../../firebase.js';
+import firebase from "firebase";
+import { useStateValue } from "../StateProvider/StateProvider.js"
 
 
 function Chat() {
-
     const [input, setInput] = useState("");
     const [seed, setSeed] = useState("");
     const { roomId } = useParams();
     const [roomName, setRoomName] = useState("");
     const [messages, setMessages] = useState([]);
-
+    const [{ user }, dispatch] = useStateValue();
 
     useEffect(() => {
         if (roomId) {
@@ -32,25 +33,34 @@ function Chat() {
         }
     }, [roomId])
 
-
     useEffect(() => {
-        setSeed(Math.floor(Math.random() * 1000))
+        setSeed(Math.floor(Math.random() * 5000));
     }, [roomId]);
 
-    const sendMessage = (event) => {
-        event.preventDefault();
-        console.log(input);
-        setInput("");
-    };
+    const sendMessage = (e) => {
+        e.preventDefault();
+        db.collection('rooms').doc(roomId).collection('messages').add({
+            message: input,
+            name: user.displayName,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        })
 
+        setInput("");
+    }
 
     return (
-        <div className="chat">
-            <div className="chat__header">
-                <Avatar src={`https://avatars.dicebear.com/api/bottts/:${seed}.svg`} />
-                <div className="chat__headerInfo">
-                    <h3>{roomName}</h3>
-                    <p>last message...</p>
+        <div className='chat'>
+            <div className='chat__header'>
+                <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
+                <div className='chat__headerInfo'>
+                    <h3 >{roomName}</h3>
+                    <p >
+                        Last seen {" "}
+                        {new Date(
+                            messages[messages.length - 1]?.
+                                timestamp?.toDate()
+                        ).toUTCString()}
+                    </p>
                 </div>
                 <div className="chat__headerRight">
                     <IconButton>
@@ -62,41 +72,36 @@ function Chat() {
                     <IconButton>
                         <MoreVertIcon />
                     </IconButton>
+
                 </div>
             </div>
-            <div className="chat__body">
+            <div className='chat__body'>
                 {messages.map(message => (
-                    <p className={`chat__message ${true && "chat__reciver"}`}>
-                        <span className="chat__name ">{message.name}</span>
+                    <p className={`chat__message ${message.name === user.displayName && 'chat__reciver'}`}>
+                        <span className="chat__name">{message.name}</span>
                         {message.message}
                         <span className="chat__timestamp">{new Date(message.timestamp?.toDate()).toUTCString()}</span>
                     </p>
                 ))}
-
-
             </div>
-            <div className="chat__footer">
+            <div className='chat__footer'>
+
                 <form>
                     <EmojiEmotionsIcon />
                     <input
+                        value={input}
+                        onChange={(event) => setInput(event.target.value)}
                         type="text"
                         placeholder="Type a message"
-                        value={input}
-                        onChange={(event) => {
-                            setInput(event.target.value)
-                        }}
 
                     />
-                    <Button
-                        type="submit"
-                        className="chat__footer-btn"
-                        onClick={sendMessage}
-                    >
-                        Send
-                    </Button>
+
+                    <Button type="submit" onClick={sendMessage} className="chat__footer-btn"> Send a Message</Button>
                     <MicIcon />
                 </form>
+
             </div>
+
         </div>
     )
 }

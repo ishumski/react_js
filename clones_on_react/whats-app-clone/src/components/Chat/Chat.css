@@ -31,6 +31,7 @@
 
 .chat__body {
     height: 100vh;
+
     background-image: url("https://crew.bet/wp-content/uploads/2015/07/bet-blocks-bg.png?id=1563");
     background-position: center;
     background-repeat: repeat;
@@ -41,6 +42,8 @@
 .chat__message {
     width: fit-content;
     position: relative;
+    max-width: 350px;
+    overflow-wrap: break-word;
     background-color: #ffffff;
     padding: 15px 25px;
     border-radius: 20px;
