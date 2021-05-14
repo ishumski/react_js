@@ -27,7 +27,7 @@ function ImageUpload({ username }) {
                 setProgress(progress);
             },
             (error) => {
-                // console.log(error);
+                 
                 alert(error.message);
             },
             () => {

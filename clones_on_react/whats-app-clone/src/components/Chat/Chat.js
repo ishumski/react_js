@@ -22,13 +22,21 @@ function Chat() {
 
     useEffect(() => {
         if (roomId) {
-            db.collection('rooms').doc(roomId).onSnapshot(snapshot => {
-                setRoomName(snapshot.data().name);
-            });
+            db
+                .collection('rooms')
+                .doc(roomId)
+                .onSnapshot(snapshot => {
+                    setRoomName(snapshot.data().name);
+                });
 
-            db.collection('rooms').doc(roomId).collection("messages").orderBy("timestamp", "asc").onSnapshot(snapshot => {
-                setMessages(snapshot.docs.map(doc => doc.data()))
-            });
+            db
+                .collection('rooms')
+                .doc(roomId)
+                .collection("messages")
+                .orderBy("timestamp", "asc")
+                .onSnapshot(snapshot => {
+                    setMessages(snapshot.docs.map(doc => doc.data()))
+                });
 
         }
     }, [roomId])
@@ -47,6 +55,7 @@ function Chat() {
 
         setInput("");
     }
+    console.log(db.collection('rooms'))
 
     return (
         <div className='chat'>
